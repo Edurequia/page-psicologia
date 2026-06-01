@@ -3,7 +3,6 @@ import Grid from '@mui/material/Grid';
 import { WHATSAPP_LINK, CRP_NUMBER } from '../constants/links';
 import { motion, type Variants } from 'framer-motion';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
-import { theme } from '../theme';
 
 const textContainer: Variants = {
   hidden: { opacity: 0 },
@@ -33,7 +32,7 @@ export const Sobre = () => {
                 whileInView={{ opacity: 1, x: 0, rotate: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-                sx={(theme) => ({
+                sx={() => ({
                   position: 'absolute', top: 30, left: -30, width: '100%', height: '100%',
                   border: `2px solid ${alpha('#FFFFFF', 0.2)}`, // Borda clara
                   borderRadius: '32px', zIndex: 0
@@ -77,19 +76,19 @@ export const Sobre = () => {
               viewport={{ once: true, margin: "-100px" }}
             >
               <motion.div variants={fadeUp}>
-                <Typography variant="subtitle2" sx={(theme) => ({ color: '#FFFFFF', letterSpacing: 3, textTransform: 'uppercase', mb: 2, fontWeight: 800, opacity: 0.8 })}>
+                <Typography variant="subtitle2" sx={() => ({ color: '#FFFFFF', letterSpacing: 3, textTransform: 'uppercase', mb: 2, fontWeight: 800, opacity: 0.8 })}>
                   Quem vai te guiar
                 </Typography>
               </motion.div>
               
               <motion.div variants={fadeUp}>
-                <Typography variant="h2" sx={(theme) => ({ color: '#FFFFFF', mb: 1, fontWeight: 800, fontSize: { xs: '2.5rem', md: '3.5rem' }, letterSpacing: '-1px' })}>
+                <Typography variant="h2" sx={() => ({ color: '#FFFFFF', mb: 1, fontWeight: 800, fontSize: { xs: '2.5rem', md: '3.5rem' }, letterSpacing: '-1px' })}>
                   Giovana Frassetto
                 </Typography>
               </motion.div>
               
               <motion.div variants={fadeUp}>
-                <Typography variant="h6" sx={(theme) => ({ color: alpha('#FFFFFF', 0.8), fontWeight: 500, mb: 4, display: 'flex', alignItems: 'center', gap: 1 })}>
+                <Typography variant="h6" sx={() => ({ color: alpha('#FFFFFF', 0.8), fontWeight: 500, mb: 4, display: 'flex', alignItems: 'center', gap: 1 })}>
                   Psicóloga Clínica <span style={{ color: alpha('#FFFFFF', 0.3) }}>|</span> <span style={{ fontSize: '0.9rem', fontWeight: 700 }}>{CRP_NUMBER}</span>
                 </Typography>
               </motion.div>
