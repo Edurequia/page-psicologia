@@ -1,4 +1,4 @@
-import { Box, Container, Typography, Button, alpha, Stack } from '@mui/material';
+import { Box, Container, Typography, Button, alpha } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { WHATSAPP_LINK, CRP_NUMBER } from '../constants/links';
 import { motion, type Variants } from 'framer-motion';
