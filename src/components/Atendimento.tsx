@@ -1,6 +1,6 @@
 import { Box, Container, Typography, Grid, Card, CardContent, alpha } from '@mui/material';
 import { motion } from 'framer-motion';
-import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded';
+import PhonelinkIcon from '@mui/icons-material/Phonelink';
 import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
 
 export const Atendimento = () => {
@@ -24,7 +24,7 @@ export const Atendimento = () => {
                   
                   <Box sx={{ display: 'flex', justifyContent: 'center', mb: 3 }}>
                     <Box sx={(theme) => ({ p: 1.5, borderRadius: '16px', bgcolor: alpha(theme.palette.primary.main, 0.1), color: theme.palette.primary.main, display: 'inline-flex' })}>
-                      <LanguageRoundedIcon fontSize="large" />
+                      <PhonelinkIcon fontSize="large" />
                     </Box>
                   </Box>
                   
@@ -32,7 +32,7 @@ export const Atendimento = () => {
                     Atendimento Online
                   </Typography>
                   
-                  <Typography variant="body1" sx={{ color: 'text.secondary', fontFamily: '"Montserrat", sans-serif', fontWeight: 500, lineHeight: 1.8, textAlign: 'justify' }}>
+                  <Typography variant="body1" sx={{ color: 'text.secondary', fontFamily: '"Montserrat", sans-serif', fontWeight: 500, lineHeight: 1.8, textAlign: 'center' }}>
                     Cuide de si no conforto e na segurança do seu próprio ambiente. Nossas sessões acontecem por videochamada de forma totalmente sigilosa, oferecendo maior flexibilidade de horários para se adaptar à sua rotina, permitindo que você seja atendido em qualquer lugar do Brasil ou do exterior.
                   </Typography>
                   
@@ -57,7 +57,7 @@ export const Atendimento = () => {
                     Atendimento Presencial
                   </Typography>
                   
-                  <Typography variant="body1" sx={{ color: 'text.secondary', fontFamily: '"Montserrat", sans-serif', fontWeight: 500, lineHeight: 1.8, textAlign: 'justify' }}>
+                  <Typography variant="body1" sx={{ color: 'text.secondary', fontFamily: '"Montserrat", sans-serif', fontWeight: 500, lineHeight: 1.8, textAlign: 'center' }}>
                     Um ambiente cuidadosamente planejado para que você se sinta acolhido. Uma estrutura dedicada a garantir a privacidade e a tranquilidade necessárias para o seu processo terapêutico.
                   </Typography>
 
