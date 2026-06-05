@@ -138,7 +138,10 @@ export const Inicio = () => {
                 component="a" 
                 href={`#${item.id}`} 
                 onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleSmoothScroll(e, item.id)}
-                sx={(theme) => ({ 
+                sx={(theme) => ({
+                  display: 'flex',
+                  alignItems: 'center',
+                  lineHeight: 1,
                   color: theme.palette.primary.main,
                   fontWeight: 600, 
                   fontSize: '0.95rem', 
@@ -317,10 +320,10 @@ export const Inicio = () => {
               #F8F1EC 100%)`,
             md: `linear-gradient(to right, 
               #F8F1EC 0%, 
-              #F8F1EC 51%, 
-              rgba(248, 241, 236, 0.8) 58%, 
-              rgba(248, 241, 236, 0.2) 70%, 
-              transparent 80%)`
+              #F8F1EC 58%,
+              rgba(248, 241, 236, 0.8) 65%,
+              rgba(248, 241, 236, 0.2) 72%,
+              transparent 95%)`
           }
         }}
       />
