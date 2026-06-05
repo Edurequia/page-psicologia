@@ -71,13 +71,16 @@ export const Inicio = () => {
   return (
     <Box 
       sx={{ 
-        bgcolor: 'background.default',
+        bgcolor: '#F8F1EC', /* Cor sólida como base de segurança */
         minHeight: { xs: '100vh', md: '800px' }, 
         display: 'flex',
         flexDirection: 'column',
         position: 'relative',
         overflowX: 'hidden', 
         overflowY: { xs: 'visible', md: 'hidden' },
+        width: '100%', /* Trava a largura para não gerar scroll horizontal */
+        m: 0,
+        p: 0
       }}
     >
       {/* HEADER */}
@@ -103,9 +106,9 @@ export const Inicio = () => {
             return { 
               width: '90%', 
               maxWidth: '1000px',
-              background: { 
-                xs: '#FFFFFF', 
-                md: `linear-gradient(135deg, ${alpha(paperColor, 0.4)} 0%, ${alpha(paperColor, 0.1)} 100%)` 
+              background: '#FFFFFF',
+              '@media (min-width: 1400px)': { 
+                background: `linear-gradient(135deg, ${alpha(paperColor, 0.4)} 0%, ${alpha(paperColor, 0.1)} 100%)` 
               },
               backdropFilter: 'blur(24px)', 
               WebkitBackdropFilter: 'blur(24px)',
@@ -142,11 +145,12 @@ export const Inicio = () => {
                   display: 'flex',
                   alignItems: 'center',
                   lineHeight: 1,
+                  whiteSpace: 'nowrap',
                   color: theme.palette.primary.main,
                   fontWeight: 600, 
                   fontSize: '0.95rem', 
                   textDecoration: 'none', 
-                  px: 2.5, 
+                  px: { md: 1.5, lg: 2.5 },
                   py: 1, 
                   borderRadius: '50px', 
                   transition: 'all 0.3s ease',
@@ -169,12 +173,13 @@ export const Inicio = () => {
               bgcolor: theme.palette.primary.main, 
               color: '#FFFFFF', 
               borderRadius: '50px', 
-              px: 3.5, 
+              px: { md: 2, lg: 3.5 },
               py: 1.2, 
               textTransform: 'none', 
               fontWeight: 800, 
               fontSize: '0.95rem',
-              display: { xs: 'none', sm: 'flex' }, 
+              whiteSpace: 'nowrap',
+              display: { xs: 'none', md: 'flex' }, /* ESCONDE ABAIXO DE 900PX */
               boxShadow: `0 4px 14px 0 ${alpha(theme.palette.primary.main, 0.3)}`,
               '&:hover': { 
                 bgcolor: theme.palette.primary.dark, 
@@ -184,13 +189,19 @@ export const Inicio = () => {
               transition: 'all 0.3s ease' 
             })}
           >
-            Falar agora
+            <Box component="span" sx={{ display: { xs: 'none', md: 'inline', lg: 'none' } }}>
+              Falar
+            </Box>
+
+            <Box component="span" sx={{ display: { xs: 'none', lg: 'inline' } }}>
+              Falar agora
+            </Box>
           </Button>
 
           <IconButton 
             onClick={handleDrawerToggle}
             sx={(theme) => ({ 
-              display: { md: 'none' }, 
+              display: { xs: 'flex', md: 'none' }, 
               color: theme.palette.primary.main 
             })}
           >
@@ -281,7 +292,7 @@ export const Inicio = () => {
           right: { xs: 0, md: '-5%' }, 
           top: { xs: 0, md: '-90px' }, 
           height: { xs: '52vh', md: '130%' }, 
-          width: { xs: '100%', sm: '80%', md: '55%' }, 
+          width: { xs: '100%', md: '55%' },
           zIndex: 1,
           pointerEvents: 'none',
           opacity: 1
@@ -341,7 +352,7 @@ export const Inicio = () => {
           pb: { xs: 8, md: 6 }
         }}
       >
-        <Grid container spacing={4} sx={{ flexGrow: 1 }}>
+        <Grid container spacing={{ xs: 0, md: 4 }} sx={{ flexGrow: 1 }}>
           <Grid 
             size={{ xs: 12, md: 6 }} 
             sx={{ display: 'flex', flexDirection: 'column' }}
@@ -362,7 +373,8 @@ export const Inicio = () => {
                   flexGrow: 1, 
                   display: 'flex', 
                   flexDirection: 'column', 
-                  justifyContent: 'center' 
+                  justifyContent: 'center',
+                  px: { xs: 2, md: 0 }
                 }}
               >
                 <motion.div variants={springUp}>
@@ -376,7 +388,7 @@ export const Inicio = () => {
                       fontWeight: 800, 
                       letterSpacing: '-1px', 
                       textAlign: { xs: 'center', md: 'left' },
-                      maxWidth: { xs: 'clamp(330px, 88vw, 390px)', md: 'none' },
+                      maxWidth: '100%', 
                       mx: { xs: 'auto', md: 0 },
                     })}
                   >
@@ -391,7 +403,7 @@ export const Inicio = () => {
                       color: theme.palette.text.primary, 
                       fontWeight: 500, 
                       fontSize: { xs: 'clamp(0.95rem, 3.8vw, 1.15rem)', md: '1.25rem' },
-                      maxWidth: { xs: 'clamp(310px, 86vw, 380px)', md: '90%' }, 
+                      maxWidth: { xs: '100%', md: '90%' }, 
                       mx: { xs: 'auto', md: 0 },
                       lineHeight: 1.5, 
                       textAlign: { xs: 'center', md: 'left' }
@@ -419,7 +431,7 @@ export const Inicio = () => {
 
               <Box 
                 sx={{ 
-                  mt: { xs: 2, md: 'auto' },
+                  mt: { xs: 4, md: 'auto' },
                   pt: { xs: 0, md: 4 }, 
                   pb: { xs: 'calc(64px + env(safe-area-inset-bottom))', md: 0 },
                   display: 'flex', 
