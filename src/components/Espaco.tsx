@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, Container, Typography, alpha } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { motion, type Variants } from 'framer-motion';
@@ -17,32 +19,32 @@ const imageVariants: Variants = {
 
 const PHOTOS = [
   { 
-    id: 1, src: '/clinica1.jpeg', alt: 'Fachada ou Recepção', 
+    id: 1, src: '/clinica1.jpeg', alt: 'Recepção do consultório de psicologia na Auxiliadora, Porto Alegre', 
     size: { xs: 12, md: 8 }, 
     height: { xs: '250px', md: '550px' }, 
     position: 'center center'
   },
   { 
-    id: 2, src: '/clinica2.jpeg', alt: 'Detalhe do Consultório', 
-    size: { xs: 12, md: 4 }, 
+    id: 2, src: '/clinica2.jpeg', alt: 'Detalhe do consultório de psicologia', 
+    size: { xs: 12, sm: 6, md: 4 }, 
     height: { xs: '250px', md: '550px' },
     position: 'center center' 
   },
   { 
-    id: 3, src: '/salaEstar.jpeg', alt: 'Poltrona de atendimento', 
-    size: { xs: 12, md: 4 }, 
+    id: 3, src: '/salaEstar.jpeg', alt: 'Poltrona da sala de atendimento psicológico', 
+    size: { xs: 12, sm: 6, md: 4 }, 
     height: { xs: '250px', md: '350px' }, 
     position: 'center center' 
   },
   { 
-    id: 4, src: '/salaEstar2.jpeg', alt: 'Decoração', 
-    size: { xs: 12, md: 4 }, 
+    id: 4, src: '/salaEstar2.jpeg', alt: 'Sala de estar do consultório', 
+    size: { xs: 12, sm: 6, md: 4 }, 
     height: { xs: '250px', md: '350px' }, 
     position: 'center center' 
   },
   { 
-    id: 5, src: '/espacoKids.jpeg', alt: 'Outro ângulo do espaço', 
-    size: { xs: 12, md: 4 }, 
+    id: 5, src: '/espacoKids.jpeg', alt: 'Espaço kids do consultório', 
+    size: { xs: 12, sm: 6, md: 4 }, 
     height: { xs: '250px', md: '350px' }, 
     position: 'center 75%'
   },

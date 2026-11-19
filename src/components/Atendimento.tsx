@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, Container, Typography, Grid, Card, CardContent, alpha } from '@mui/material';
 import { motion } from 'framer-motion';
 import PhonelinkIcon from '@mui/icons-material/Phonelink';

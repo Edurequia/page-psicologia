@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, Container, Typography, Paper, Stack, alpha } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { motion, type Variants } from 'framer-motion';
@@ -12,12 +14,12 @@ const pillars = [
     desc: 'Aprofunde o autoconhecimento, compreenda seus padrões, valores e necessidades para fazer escolhas mais alinhadas à sua essência.'
   },
  { 
-    icon: <Box component="img" src="/cerebro.png" alt="Coração" sx={{ width: 48, height: 48, objectFit: 'contain' }} />, 
+    icon: <Box component="img" src="/cerebro.png" alt="" sx={{ width: 48, height: 48, objectFit: 'contain' }} />, 
     title: <>Cuidar da sua <br /> saúde mental</>, 
     desc: 'Aprenda a lidar com ansiedade, estresse, tristeza, autoestima, autocrítica e outras questões que impactam seu bem-estar emocional.' 
   },
   { 
-    icon: <Box component="img" src="/coracao.png" alt="Desafios" sx={{ width: 48, height: 48, objectFit: 'contain' }} />, 
+    icon: <Box component="img" src="/coracao.png" alt="" sx={{ width: 48, height: 48, objectFit: 'contain' }} />, 
     title: <>Superar <br /> seus desafios</>, 
     desc: 'Elabore suas dores, ressignifique experiências e encontre novos caminhos para seguir em frente com mais leveza e confiança.' 
   },
@@ -29,23 +31,23 @@ const pillars = [
 ];
 
 const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
 };
 
 const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 60, damping: 15 } }
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 60, damping: 15 } }
 };
 
 export const ComoAjudo = () => {
-  return (
-    <Box id="comoAjudo" sx={{ py: { xs: 10, md: 14 }, bgcolor: theme.palette.background.default, position: 'relative' }}>
-      <Container maxWidth="lg">
-        
-        <Stack spacing={2} sx={{ alignItems: "center", textAlign: "center", mb: 10 }}>
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}>
-            <Typography 
+  return (
+    <Box id="comoAjudo" sx={{ py: { xs: 10, md: 14 }, bgcolor: theme.palette.background.default, position: 'relative' }}>
+      <Container maxWidth="lg">
+        
+        <Stack spacing={2} sx={{ alignItems: "center", textAlign: "center", mb: 10 }}>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}>
+            <Typography 
               variant="subtitle1" 
               sx={{ 
                 fontWeight: 700, 
@@ -63,10 +65,10 @@ export const ComoAjudo = () => {
                 pode te <span style={{ color: '#a05e45' }}>ajudar?</span>
               </Box>
             </Typography>
-            <Typography variant="h2" sx={{ fontSize: { xs: '2.2rem', md: '3.5rem' }, fontWeight: 800, color: 'text.primary', maxWidth: '800px', lineHeight: 1.1, mb: 3, letterSpacing: '-1px' }}>
-             <span style={{ color:theme.palette.primary.main }}>Um espaço para você cuidar da sua mente e </span><span style={{ color: '#B45E45' }}>florescer.</span>
-            </Typography>
-            <Typography 
+            <Typography variant="h2" sx={{ fontSize: { xs: '2.2rem', md: '3.5rem' }, fontWeight: 800, color: 'text.primary', maxWidth: '800px', lineHeight: 1.1, mb: 3, letterSpacing: '-1px' }}>
+             <span style={{ color:theme.palette.primary.main }}>Um espaço para você cuidar da sua mente e </span><span style={{ color: '#B45E45' }}>florescer.</span>
+            </Typography>
+            <Typography 
               variant="body1" 
               sx={{ 
                 color: 'text.secondary', 
@@ -79,10 +81,10 @@ export const ComoAjudo = () => {
             >
               Ofereço um lugar seguro e acolhedor para você olhar para dentro, compreender suas emoções e construir uma vida mais leve.
             </Typography>
-          </motion.div>
-        </Stack>
+          </motion.div>
+        </Stack>
 
-       <Box 
+       <Box 
         component={motion.div} 
         variants={containerVariants} 
         initial="hidden" 
@@ -140,7 +142,7 @@ export const ComoAjudo = () => {
         </Grid>
       </Box>
 
-      </Container>
-    </Box>
-  );
+      </Container>
+    </Box>
+  );
 };

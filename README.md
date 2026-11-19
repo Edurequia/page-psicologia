@@ -28,10 +28,16 @@ O projeto foi desenvolvido com:
 
 * **React**
 * **TypeScript**
-* **Vite**
+* **Next.js** (export estático)
 * **Material UI**
 * **Framer Motion**
 * **MUI Icons**
+
+## Rodar e publicar
+
+* `npm run dev`: desenvolvimento em http://localhost:3000
+* `npm run build`: gera a pasta `out/`; o conteúdo dela (inclusive o `.htaccess`) sobe para o public_html
+* `npm start`: serve o `out/` em http://localhost:4173 para conferir o build
 
 
 ## Identidade visual

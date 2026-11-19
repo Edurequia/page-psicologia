@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { 
   Box, Container, Typography, Button, Stack, alpha, 
@@ -37,6 +39,7 @@ const springUp: Variants = {
 const MENU_ITEMS = [
   { label: 'Sobre mim', id: 'sobre' },
   { label: 'Como vou te ajudar?', id: 'comoAjudo' },
+  { label: 'Avaliação', id: 'avaliacao' },
   { label: 'Atendimento', id: 'atendimento' },
   { label: 'A clínica', id: 'fotosClinica' },
 ];
@@ -72,7 +75,7 @@ export const Inicio = () => {
     <Box 
       sx={{ 
         bgcolor: '#F8F1EC', /* Cor sólida como base de segurança */
-        minHeight: { xs: '100vh', md: '800px' }, 
+        minHeight: { xs: '100vh', md: 'max(600px, 100svh)' }, /* sempre ocupa a tela inteira, em qualquer zoom */ 
         display: 'flex',
         flexDirection: 'column',
         position: 'relative',
@@ -105,7 +108,7 @@ export const Inicio = () => {
 
             return { 
               width: '90%', 
-              maxWidth: '1000px',
+              maxWidth: { xs: '1000px', xl: '1120px' }, /* 5 itens no menu pedem mais largura */
               background: '#FFFFFF',
               '@media (min-width: 1400px)': { 
                 background: `linear-gradient(135deg, ${alpha(paperColor, 0.4)} 0%, ${alpha(paperColor, 0.1)} 100%)` 
@@ -126,14 +129,14 @@ export const Inicio = () => {
           <motion.img 
             whileHover={{ scale: 1.05 }}
             src="/logo3.png" 
-            alt="Logo" 
+            alt="Giovana Frassetto Psicóloga" 
             style={{ height: '30px', cursor: 'pointer' }} 
           />
           
           <Stack 
             direction="row" 
             spacing={1} 
-            sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}
+            sx={{ display: { xs: 'none', lg: 'flex' }, alignItems: 'center' }}
           >
             {MENU_ITEMS.map((item, idx) => (
               <Typography 
@@ -150,7 +153,7 @@ export const Inicio = () => {
                   fontWeight: 600, 
                   fontSize: '0.95rem', 
                   textDecoration: 'none', 
-                  px: { md: 1.5, lg: 2.5 },
+                  px: { lg: 1.5, xl: 2 },
                   py: 1, 
                   borderRadius: '50px', 
                   transition: 'all 0.3s ease',
@@ -173,13 +176,14 @@ export const Inicio = () => {
               bgcolor: theme.palette.primary.main, 
               color: '#FFFFFF', 
               borderRadius: '50px', 
-              px: { md: 2, lg: 3.5 },
+              px: { lg: 3, xl: 3.5 },
+              flexShrink: 0,
               py: 1.2, 
               textTransform: 'none', 
               fontWeight: 800, 
               fontSize: '0.95rem',
               whiteSpace: 'nowrap',
-              display: { xs: 'none', md: 'flex' }, /* ESCONDE ABAIXO DE 900PX */
+              display: { xs: 'none', lg: 'flex' }, /* menu completo só cabe a partir de 1200px */
               boxShadow: `0 4px 14px 0 ${alpha(theme.palette.primary.main, 0.3)}`,
               '&:hover': { 
                 bgcolor: theme.palette.primary.dark, 
@@ -201,7 +205,7 @@ export const Inicio = () => {
           <IconButton 
             onClick={handleDrawerToggle}
             sx={(theme) => ({ 
-              display: { xs: 'flex', md: 'none' }, 
+              display: { xs: 'flex', lg: 'none' }, 
               color: theme.palette.primary.main 
             })}
           >
@@ -301,7 +305,7 @@ export const Inicio = () => {
         <Box 
           component="img"
           src="/emPe2.jpeg" 
-          alt="Giovana Frassetto" 
+          alt="Giovana Frassetto, psicóloga clínica em Porto Alegre" 
           sx={{ 
             width: '100%', 
             height: '100%', 
@@ -348,7 +352,7 @@ export const Inicio = () => {
           flexGrow: 1,
           display: 'flex',
           flexDirection: 'column',
-          pt: { xs: '52vh', md: '12vh' },
+          pt: { xs: '52vh', md: 'max(12vh, 130px)' }, /* nunca fica atrás do menu */
           pb: { xs: 8, md: 6 }
         }}
       >
@@ -365,12 +369,13 @@ export const Inicio = () => {
               sx={{ 
                 display: 'flex', 
                 flexDirection: 'column', 
-                flexGrow: 1 
+                flexGrow: 1,
+                justifyContent: { md: 'center' } /* texto + botão centralizados juntos */
               }}
             >
               <Box 
                 sx={{ 
-                  flexGrow: 1, 
+                  flexGrow: { xs: 1, md: 0 }, 
                   display: 'flex', 
                   flexDirection: 'column', 
                   justifyContent: 'center',
@@ -381,7 +386,7 @@ export const Inicio = () => {
                   <Typography 
                     variant="h1" 
                     sx={(theme) => ({ 
-                      fontSize: { xs: 'clamp(1.9rem, 7.2vw, 2.35rem)', md: '4rem' }, 
+                      fontSize: { xs: 'clamp(1.9rem, 7.2vw, 2.35rem)', md: 'clamp(2.6rem, 2rem + 2.2vw, 4rem)' }, 
                       color: theme.palette.primary.main, 
                       mb: { xs: 1.5, md: 3 }, 
                       lineHeight: 1.1, 
@@ -392,6 +397,31 @@ export const Inicio = () => {
                       mx: { xs: 'auto', md: 0 },
                     })}
                   >
+                    {/* dentro do h1 de propósito: leva "psicóloga + Porto Alegre" para o título principal */}
+                    <Box
+                      component="span"
+                      sx={(theme) => ({
+                        display: 'flex',
+                        alignItems: 'center',
+                        flexDirection: { xs: 'column', md: 'row' },
+                        justifyContent: { xs: 'center', md: 'flex-start' },
+                        gap: { xs: 0.25, md: 1.5 },
+                        mb: { xs: 1.5, md: 2.5 },
+                        fontFamily: '"Montserrat", sans-serif',
+                        fontStyle: 'normal',
+                        fontWeight: 700,
+                        fontSize: { xs: '0.68rem', md: '0.8rem' },
+                        letterSpacing: { xs: '2px', md: '3px' },
+                        lineHeight: 1.4,
+                        textTransform: 'uppercase',
+                        color: theme.palette.secondary.main,
+                        '&::before': { content: '""', width: 28, height: '1px', bgcolor: 'currentColor', flexShrink: 0, display: { xs: 'none', md: 'block' } },
+                      })}
+                    >
+                      <span>Psicóloga em Porto Alegre</span>
+                      <Box component="span" aria-hidden="true" sx={{ display: { xs: 'none', md: 'inline' } }}>·</Box>
+                      <span>Presencial e Online</span>
+                    </Box>
                     Cuidado psicológico com afeto e responsabilidade.
                   </Typography>
                 </motion.div>
@@ -431,8 +461,8 @@ export const Inicio = () => {
 
               <Box 
                 sx={{ 
-                  mt: { xs: 4, md: 'auto' },
-                  pt: { xs: 0, md: 4 }, 
+                  mt: { xs: 4, md: 5 },
+                  pt: 0, 
                   pb: { xs: 'calc(64px + env(safe-area-inset-bottom))', md: 0 },
                   display: 'flex', 
                   justifyContent: { xs: 'center', md: 'flex-start' } 

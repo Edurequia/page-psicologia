@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, Container, Typography, Button, alpha } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { WHATSAPP_LINK, CRP_NUMBER } from '../constants/links';
@@ -24,7 +26,7 @@ export const Sobre = () => {
         <Grid container spacing={{ xs: 8, md: 12 }} sx={{ alignItems: 'center' }}>
           
           <Grid size={{ xs: 12, md: 5 }}>
-            <Box sx={{ position: 'relative', width: '100%', maxWidth: '450px', margin: '0 auto' }}>
+            <Box sx={{ position: 'relative', width: { xs: 'calc(100% - 40px)', md: '100%' }, maxWidth: '450px', margin: '0 auto' }}>
               
               <Box 
                 component={motion.div}
@@ -101,7 +103,7 @@ export const Sobre = () => {
                     color: theme.palette.background.default,
                     fontSize: { xs: '1rem', md: '1.15rem' }, 
                     lineHeight: 1.8, 
-                    textAlign: 'justify',
+                    textAlign: { xs: 'left', md: 'justify' }, /* justificado em coluna estreita abre buracos */
                     fontFamily: '"Montserrat", sans-serif',
                     opacity: 0.9
                   })}

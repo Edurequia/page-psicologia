@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, Container, Typography, Stack, IconButton, alpha } from '@mui/material';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -23,8 +25,8 @@ export const Footer = () => {
               src="/logo3.png" 
               alt="Logo Giovana Guasque Frassetto" 
               style={{ 
-                height: '60px',
-                objectFit: 'contain',
+                height: 'auto',
+                width: 'min(325px, 100%)',
                  filter: 'brightness(0) invert(1)'
               }} 
             />
