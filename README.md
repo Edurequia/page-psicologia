@@ -36,7 +36,7 @@ O projeto foi desenvolvido com:
 ## Rodar e publicar
 
 * `npm run dev`: desenvolvimento em http://localhost:3000
-* `npm run build`: gera a pasta `out/`; o conteúdo dela (inclusive o `.htaccess`) sobe para o public_html
+* `npm run build`: gera a pasta `out/`. O deploy é automático na Vercel a cada push na `main`
 * `npm start`: serve o `out/` em http://localhost:4173 para conferir o build
 
 

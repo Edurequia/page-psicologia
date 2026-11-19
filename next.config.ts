@@ -1,10 +1,7 @@
 import type { NextConfig } from "next";
 
-// Site estático, no padrão da madrugada-pneus: `npm run build` gera a pasta
-// `out/`, cujo conteúdo sobe para o public_html da hospedagem. Sem servidor
-// Node, o Next não envia cabeçalhos nem otimiza imagens — por isso os
-// cabeçalhos de segurança e o cache moram em `public/.htaccess`, e as imagens
-// já vão para `public/` no tamanho final.
+// Hospedado na Vercel; o export estático gera HTML pronto com todo o conteúdo
+// (bom para Google e robôs de IA). https e www são configurados no painel de domínios da Vercel.
 const nextConfig: NextConfig = {
   output: "export",
   trailingSlash: true,
